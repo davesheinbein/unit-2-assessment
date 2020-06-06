@@ -1,16 +1,16 @@
 const lists = [
-    { id: 100001, items: "Bananas" },
-    { id: 100002, items: "Apples" },
-    { id: 100003, items: "Squash" },
-    { id: 100004, items: "Cake" }
+    { id: 1000001, list: 'Orange', done: true },
+    { id: 1000002, list: 'Apple', done: false },
+    { id: 1000003, list: 'Gum', done: false },
+    { id: 1000004, list: 'Orange Juice', done: true },
+    { id: 1000005, list: 'Penutbutter', done: true }
 ]
 
 module.exports = {
     getAll,
     getOne,
     create,
-    deleteOne,
-    update
+    deleteOne
 }
 
 function getAll() {
@@ -23,18 +23,11 @@ function getOne(id) {
 
 function create(list) {
     list.id = Date.now() % 1000000;
-    list.item = '';
     lists.push(list);
 }
 
 function deleteOne(id) {
-    const idx = skills.findIndex(list => list.id === parseInt(id));
+    const idx = lists.findIndex(list => list.id === parseInt(id));
     console.log("<---- IDX", idx)
     lists.splice(idx, 1);
-}
-
-function update(id, list) {
-    const listObj = lists.find(l => l.id === parseInt(id));
-    console.log(listObj, '<---- listObj');
-    Object.assign(listObj, list);
 }

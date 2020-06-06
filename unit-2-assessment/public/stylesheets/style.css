@@ -6,7 +6,18 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: underline transparent;
+}
+.delete-form {
+  display: inline-block;
+  margin-right: 10px;
+}
+.delete-form button {
+  color: red;
+}
+
+button {
+  margin: 0rem .5rem;
 }

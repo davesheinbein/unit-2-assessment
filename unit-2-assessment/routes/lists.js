@@ -9,5 +9,12 @@ router.post('/', listsCtrl.create);
 
 router.delete('/:id', listsCtrl.deleteItem);
 
+// router.get('/', listsCtrl.newItem);
+
+// router.get('/', listsCtrl.show);
+
+// router.get('/:id', listsCtrl.edit);
+
+// router.put('/:id/new', listsCtrl.update);
 
 module.exports = router;

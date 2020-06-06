@@ -2,29 +2,14 @@ const listDB = require('../models/list')
 
 module.exports = {
     index,
-    show,
-    newItem,
     create,
-    deleteItem,
-    edit,
-    update
+    deleteItem
 }
 
 function index(req, res) {
-    res.render('/', {
+    res.render('lists/index', {
         lists: listDB.getAll()
-    })
-}
-
-function show(req, res) {
-    console.log(req.params, '<---- req.params');
-    res.render('/', {
-        list: listDB.getOne(req.params.id)
-    })
-}
-
-function newItem(req, res) {
-    res.render('/');
+    });
 }
 
 function create(req, res) {
@@ -36,14 +21,4 @@ function create(req, res) {
 function deleteItem(req, res) {
     listDB.deleteOne(req.params.id);
     res.redirect('/');
-}
-
-function edit(req, res) {
-    const list = listDB.getOne(req.params.id);
-    res.render('/', { list })
-}
-
-function update(req, res) {
-    listDB.update(req.params.id, req.body);
-    res.redirect(`/${req.params.id}`);
 }
