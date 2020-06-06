@@ -4,20 +4,22 @@ var router = express.Router();
 const listsCtrl = require('../controllers/lists');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'To Do List' });
-});
+// router.get('/', function (req, res, next) {
+//   res.render('index', { title: 'To Do List'});
+// });
 
-router.get('/', listsCtrl.index)
+router.get('/', listsCtrl.index);
 
-router.get('/:id', listsCtrl.show)
+router.get('/', listsCtrl.newItem);
 
-router.get('/:id/edit', listsCtrl.edit)
+router.get('/', listsCtrl.show);
 
-router.post('/', listsCtrl.create)
+router.get('/:id', listsCtrl.edit);
 
-router.delete('/:id', listsCtrl.delete)
+router.post('/', listsCtrl.create);
 
-router.put('/:id', listsCtrl.update)
+router.delete('/:id/new', listsCtrl.deleteItem);
+
+router.put('/:id/new', listsCtrl.update);
 
 module.exports = router;

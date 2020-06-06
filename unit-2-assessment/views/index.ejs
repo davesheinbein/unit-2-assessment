@@ -10,18 +10,23 @@
   <h1><%= title %></h1>
   <p>Welcome to <%= title %></p>
 
-  <h1><%# list.list  %> </h1>
-  <h1><%# list.item  %> </h1>
+  <h1><%= list.list  %> </h1>
+  <h1><%= lists.item  %> </h1>
 
   <ul>
-    <% lists.forEach(function(l) { %>
+    <%# lists.forEach(function(l) { %>
     <li>
-      <form action="/<%= l.id %>?_method=DELETE" class="delete-form" method="POST">
+      <form action="/<%# l.id %>?_method=DELETE" class="delete-form" method="POST">
         <button type="submit">X</button>
       </form>
     </li>
-    <% }); %>
+    <%# }); %>
   </ul>
+  <form action="/" method="POST" autocomplete="off">
+    <input type="text" name="list">
+    <!-- name of "todo" will result in a property req.body.todo -->
+    <button type="submit">Save list item</button>
+  </form>
 
 </body>
 

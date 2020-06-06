@@ -3,9 +3,9 @@ const listDB = require('../models/list')
 module.exports = {
     index,
     show,
-    new: newItem,
+    newItem,
     create,
-    delete: deleteItem,
+    deleteItem,
     edit,
     update
 }
@@ -24,7 +24,7 @@ function show(req, res) {
 }
 
 function newItem(req, res) {
-    res.render('/')
+    res.render('/');
 }
 
 function create(req, res) {
