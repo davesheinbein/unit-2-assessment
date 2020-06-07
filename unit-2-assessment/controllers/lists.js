@@ -8,7 +8,8 @@ module.exports = {
 
 function index(req, res) {
     res.render('lists/index', {
-        lists: listDB.getAll()
+        lists: listDB.getAll(),
+        title: 'To Do List'
     });
 }
 

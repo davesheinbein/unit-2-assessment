@@ -10,16 +10,21 @@
 
 
 <body>
-    <h1>To Do List</h1>
+    <h1><%= title %> </h1>
+
+    <% if (lists.length) { %>
     <ul>
         <% lists.forEach(function(l) { %>
         <li>
-            <a href="/lists/<%= l.id %>"><%= l.list %> - <%= l.done ? 'Done' : 'Not Done' %> </a>
+            <a><%= l.list %> - <%= l.done ? 'Done' : 'Not Done' %></a>
             <form action="/lists/<%= l.id %>?_method=DELETE" class="delete-form" method="POST">
-                <button type="submit">Delete</button>
+                <button id="btn" type="submit">Delete</button>
             </form>
         </li>
         <% }); %>
+        <% } else { %>
+        <p>There are no to do's yet!</p>
+        <% }; %>
         <hr>
         <form action="/lists" method="POST" autocomplete="off">
             <input type="text" name="list">

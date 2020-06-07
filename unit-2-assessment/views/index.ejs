@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title><%= title %></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-  <h1>To Do's List</h1>
 
+<body>
+  <h1><%= title %> </h1>
+
+  <% if (lists.length) { %>
   <ul>
     <% lists.forEach(function(l) { %>
     <li>
-      <form action="/index/<%= l.id %>?_method=DELETE" class="delete-form" method="POST">
-        <button type="submit">X</button>
+      <a><%= l.list %> - <%= l.done ? 'Done' : 'Not Done' %></a>
+      <form action="/lists/<%= l.id %>?_method=DELETE" class="delete-form" method="POST">
+        <button type="submit">Delete</button>
       </form>
-      <a href="/index/<%= l.id %>"><%= l.skill %></a>
     </li>
     <% }); %>
-    <form action="/index" method="POST" autocomplete="off">
-      <input type="text" name="skill">
-      <button type="submit">ADD TO DO</button>
+    <% } else { %>
+    <p>There are no To Do Yet!</p>
+    <% }; %>
+    <hr>
+    <form action="/lists" method="POST" autocomplete="off">
+      <input type="text" name="list">
+      <button type="submit">Add Item</button>
     </form>
   </ul>
 </body>
